@@ -472,7 +472,7 @@ def get_preferred_silent_default_model(provider: str = "openrouter") -> str:
 
 
 def _is_anthropic_frontier_tier(model_id: Optional[str]) -> bool:
-    """Return True for Anthropic frontier-tier models (Opus + Fable).
+    """Return True for Anthropic frontier-tier models (Opus + Fable + Mythos).
 
     Both tiers are the priciest Anthropic offerings and are unsafe defaults
     for a freshly-authenticated provider picker or any other silent fallback:
@@ -492,7 +492,7 @@ def _is_anthropic_frontier_tier(model_id: Optional[str]) -> bool:
     base = raw.split(":")[0].lower()
     if not base.startswith("claude-"):
         return False
-    return ("opus-" in base) or ("fable-" in base)
+    return any(tier in base for tier in ("opus-", "fable-", "mythos-"))
 
 
 def pick_silent_default_model(model_ids: list[str], provider: str = "openrouter") -> str:

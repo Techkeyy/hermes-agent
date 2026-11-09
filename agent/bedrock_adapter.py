@@ -1489,7 +1489,8 @@ BEDROCK_CONTEXT_LENGTHS: dict[str, int] = {
     # DEFAULT_CONTEXT_LENGTHS or context compresses early — Opus 5 reached that table and not this
     # one, so the offline path resolved 128K for a 1M model (#74263); the pairing is now tested.
     **dict.fromkeys((
-        "anthropic.claude-fable-5", "anthropic.claude-fable", "anthropic.claude-sonnet-5", "anthropic.claude-opus-5",
+        "anthropic.claude-fable-5", "anthropic.claude-fable", "anthropic.claude-mythos", "anthropic.claude-sonnet-5",
+        "anthropic.claude-opus-5",
         "anthropic.claude-opus-4-8", "anthropic.claude-opus-4-7",
         "anthropic.claude-opus-4-6", "anthropic.claude-sonnet-4-6",
     ), 1_000_000),
